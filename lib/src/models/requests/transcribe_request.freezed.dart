@@ -83,9 +83,10 @@ mixin _$TranscribeRequest {
 /// previous version.
  String? get vadModelPath;/// Padding in milliseconds kept around each detected speech segment
 /// when [vadModelPath] is set, so clipped first and last words stay
-/// intact. Null keeps whisper.cpp's default. Values around 100 ms work
-/// well for push-to-talk; much larger values can garble segment
-/// boundaries. Ignored when [vadModelPath] is null.
+/// intact. Null keeps whisper.cpp's default, and negative values are
+/// treated the same as null. Values around 100 ms work well for
+/// push-to-talk; much larger values can garble segment boundaries.
+/// Ignored when [vadModelPath] is null.
  int? get vadSpeechPadMs;
 /// Create a copy of TranscribeRequest
 /// with the given fields replaced by the non-null parameter values.
@@ -388,9 +389,10 @@ class _TranscribeRequest extends TranscribeRequest {
 @override@JsonKey() final  String? vadModelPath;
 /// Padding in milliseconds kept around each detected speech segment
 /// when [vadModelPath] is set, so clipped first and last words stay
-/// intact. Null keeps whisper.cpp's default. Values around 100 ms work
-/// well for push-to-talk; much larger values can garble segment
-/// boundaries. Ignored when [vadModelPath] is null.
+/// intact. Null keeps whisper.cpp's default, and negative values are
+/// treated the same as null. Values around 100 ms work well for
+/// push-to-talk; much larger values can garble segment boundaries.
+/// Ignored when [vadModelPath] is null.
 @override@JsonKey() final  int? vadSpeechPadMs;
 
 /// Create a copy of TranscribeRequest

@@ -100,9 +100,10 @@ abstract class TranscribeRequest with _$TranscribeRequest {
 
     /// Padding in milliseconds kept around each detected speech segment
     /// when [vadModelPath] is set, so clipped first and last words stay
-    /// intact. Null keeps whisper.cpp's default. Values around 100 ms work
-    /// well for push-to-talk; much larger values can garble segment
-    /// boundaries. Ignored when [vadModelPath] is null.
+    /// intact. Null keeps whisper.cpp's default, and negative values are
+    /// treated the same as null. Values around 100 ms work well for
+    /// push-to-talk; much larger values can garble segment boundaries.
+    /// Ignored when [vadModelPath] is null.
     @Default(null) int? vadSpeechPadMs,
   }) = _TranscribeRequest;
   const TranscribeRequest._();
