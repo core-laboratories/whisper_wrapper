@@ -1,3 +1,7 @@
+## 3.0.2
+
+* Published after synchronizing the renamed package with its public repository.
+
 ## 3.0.1
 
 * Fixed Markdown conformance in the package documentation.
