@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:universal_io/io.dart';
-import 'package:whisper_ggml/src/models/whisper_model.dart';
+import 'package:whisper_wrapper/src/models/whisper_model.dart';
 
 import 'models/whisper_result.dart';
 import 'whisper.dart';
@@ -167,14 +167,15 @@ class WhisperController {
         !Platform.isWindows &&
         !Platform.isLinux) {
       throw UnsupportedError(
-        'whisper_ggml supports Android, iOS, macOS, Windows, and Linux. '
+        'whisper_wrapper supports Android, iOS, macOS, Windows, and Linux. '
         '${Platform.operatingSystem} has no native whisper implementation.',
       );
     }
     // getLibraryDirectory only exists on Apple platforms.
-    final Directory libraryDirectory = Platform.isIOS || Platform.isMacOS
-        ? await getLibraryDirectory()
-        : await getApplicationSupportDirectory();
+    final Directory libraryDirectory =
+        Platform.isIOS || Platform.isMacOS
+            ? await getLibraryDirectory()
+            : await getApplicationSupportDirectory();
     return libraryDirectory.path;
   }
 
@@ -184,7 +185,9 @@ class WhisperController {
     return '$_dir/ggml-${model.modelName}.bin';
   }
 
-  /// Download [model] to [destinationPath]
+  /// Downloads [model] to the package model directory.
+  ///
+  /// Returns the absolute path of the downloaded or already-cached model.
   Future<String> downloadModel(WhisperModel model) async {
     if (!File(await getPath(model)).existsSync()) {
       final request = await HttpClient().getUrl(model.modelUri);

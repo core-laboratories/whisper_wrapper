@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest an offline speech-recognition improvement
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What use case is not currently supported?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: checkboxes
+    id: offline
+    attributes:
+      label: Offline requirement
+      options:
+        - label: The proposed feature can operate fully on-device without mandatory remote services.
+          required: true

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the startWhisperLiveSession function from the whisper_wrapper library, for the Dart programming language.">
+  <title>startWhisperLiveSession function - whisper_wrapper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">whisper_wrapper</a></li>
+    <li><a href="../whisper_wrapper/">whisper_wrapper.dart</a></li>
+    <li class="self-crumb">startWhisperLiveSession function</li>
+  </ol>
+  <div class="self-name">startWhisperLiveSession</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="whisper_wrapper&#47;whisper_wrapper-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">startWhisperLiveSession</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../whisper_wrapper/WhisperLiveSession-class.html">WhisperLiveSession</a></span>&gt;</span></span>
+<span class="name ">startWhisperLiveSession</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="startWhisperLiveSession-param-modelPath"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">modelPath</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-lang"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">lang</span> = <span class="default-value">&#39;en&#39;</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-translate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">translate</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-initialPrompt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">initialPrompt</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-suppressNonSpeechTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">suppressNonSpeechTokens</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-keepModelLoaded"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepModelLoaded</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-threads"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">threads</span> = <span class="default-value">4</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-gateRmsMin"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">gateRmsMin</span> = <span class="default-value">0.0015</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-gateVoiceRatio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">gateVoiceRatio</span> = <span class="default-value">2.5</span>, </span></li>
+<li><span class="parameter" id="startWhisperLiveSession-param-gateNoiseFloorCap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">gateNoiseFloorCap</span> = <span class="default-value">0.01</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Start a live transcription session against the ggml model file at
+<code>modelPath</code>.</p>
+<p>This is the low-level entry point behind
+<code>WhisperController.transcribeLive</code>: it accepts any local model file and
+leaves audio delivery to the caller — feed 16 kHz mono little-endian
+PCM16 audio with <a href="../whisper_wrapper/WhisperLiveSession/feed.html">WhisperLiveSession.feed</a> and finish with
+<a href="../whisper_wrapper/WhisperLiveSession/stop.html">WhisperLiveSession.stop</a>. A worker isolate owns the native stream, so
+inference never blocks the calling isolate. Only one live session can
+run at a time.</p>
+<p>The <code>gate*</code> parameters tune the native energy gate that keeps silence
+away from the decoder; see <code>WhisperController.transcribeLive</code> for
+details.</p>
+<p><code>keepModelLoaded</code> parks the session's model in native memory on
+<a href="../whisper_wrapper/WhisperLiveSession/stop.html">WhisperLiveSession.stop</a> instead of freeing it, so the next session
+(or one-shot transcription) with the same model file skips the
+multi-second load — see <code>TranscribeRequest.keepModelLoaded</code> for the
+memory trade-off. A session also borrows an already-parked model
+automatically when the path matches, and returns it on stop.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;WhisperLiveSession&gt; startWhisperLiveSession({
+  required String modelPath,
+  String lang = &#39;en&#39;,
+  bool translate = false,
+  String? initialPrompt,
+  bool suppressNonSpeechTokens = false,
+  bool keepModelLoaded = false,
+  int threads = 4,
+  double gateRmsMin = 0.0015,
+  double gateVoiceRatio = 2.5,
+  double gateNoiseFloorCap = 0.01,
+}) async {
+  final ReceivePort fromWorker = ReceivePort();
+  final Isolate worker = await Isolate.spawn(_liveWorker, fromWorker.sendPort);
+
+  final StreamController&lt;String&gt; partials = StreamController&lt;String&gt;();
+  final Completer&lt;SendPort&gt; ready = Completer&lt;SendPort&gt;();
+  final Completer&lt;void&gt; started = Completer&lt;void&gt;();
+  late final WhisperLiveSession session;
+
+  String lastText = &#39;&#39;;
+
+  fromWorker.listen((dynamic message) {
+    final List&lt;dynamic&gt; msg = message as List&lt;dynamic&gt;;
+    switch (msg[0] as String) {
+      case &#39;ready&#39;:
+        ready.complete(msg[1] as SendPort);
+      case &#39;started&#39;:
+        started.complete();
+      case &#39;partial&#39;:
+        lastText = msg[1] as String;
+        if (!partials.isClosed) partials.add(lastText);
+      case &#39;final&#39;:
+        if (!partials.isClosed) partials.close();
+        session._final.complete(msg[1] as String);
+        fromWorker.close();
+        session._worker.kill();
+      case &#39;error&#39;:
+        final error = Exception(msg[1] as String);
+        if (!started.isCompleted) {
+          started.completeError(error);
+        } else if (!session._final.isCompleted) {
+          &#47;&#47; A mid-session native error is fatal: surface it on [partials],
+          &#47;&#47; then finalize with the last known text so stop() never hangs.
+          if (!partials.isClosed) {
+            partials
+              ..addError(error)
+              ..close();
+          }
+          session._final.complete(lastText);
+          fromWorker.close();
+          session._worker.kill();
+        }
+    }
+  });
+
+  final SendPort toWorker = await ready.future;
+  session = WhisperLiveSession._(worker, toWorker, partials);
+
+  toWorker.send([
+    &#39;start&#39;,
+    json.encode({
+      &#39;model&#39;: modelPath,
+      &#39;language&#39;: lang,
+      &#39;is_translate&#39;: translate,
+      &#39;threads&#39;: threads,
+      &#39;suppress_non_speech_tokens&#39;: suppressNonSpeechTokens,
+      &#39;keep_model_loaded&#39;: keepModelLoaded,
+      &#39;gate_rms_min&#39;: gateRmsMin,
+      &#39;gate_voice_ratio&#39;: gateVoiceRatio,
+      &#39;gate_floor_cap&#39;: gateNoiseFloorCap,
+      if (initialPrompt != null &amp;&amp; initialPrompt.isNotEmpty)
+        &#39;initial_prompt&#39;: initialPrompt,
+    }),
+  ]);
+
+  try {
+    await started.future;
+  } catch (_) {
+    worker.kill(priority: Isolate.immediate);
+    fromWorker.close();
+    await partials.close();
+    rethrow;
+  }
+  return session;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">whisper_wrapper</a></li>
+    <li><a href="../whisper_wrapper/">whisper_wrapper</a></li>
+    <li class="self-crumb">startWhisperLiveSession function</li>
+</ol>
+
+    <h5>whisper_wrapper library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    whisper_wrapper
+      3.0.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

@@ -6,7 +6,6 @@ part 'whisper_transcribe_segment.freezed.dart';
 part 'whisper_transcribe_segment.g.dart';
 
 @freezed
-
 /// Transcribe segment model
 abstract class WhisperTranscribeSegment with _$WhisperTranscribeSegment {
   ///

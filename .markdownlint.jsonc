@@ -1,0 +1,11 @@
+{
+	"MD013": {
+		"tables": false
+	},
+	"MD049": {
+		"style": "underscore"
+	},
+	"MD060": {
+		"style": "aligned"
+	}
+}

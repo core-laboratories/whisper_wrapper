@@ -5,8 +5,8 @@ import 'dart:isolate';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
-import 'package:whisper_ggml/src/models/whisper_model.dart';
-import 'package:whisper_ggml/src/whisper_audio_convert.dart';
+import 'package:whisper_wrapper/src/models/whisper_model.dart';
+import 'package:whisper_wrapper/src/whisper_audio_convert.dart';
 
 import 'models/requests/release_model_request.dart';
 import 'models/requests/transcribe_request.dart';
@@ -39,9 +39,9 @@ class Whisper {
     if (Platform.isAndroid) {
       return DynamicLibrary.open('libwhisper.so');
     } else if (Platform.isWindows) {
-      return DynamicLibrary.open('whisper_ggml.dll');
+      return DynamicLibrary.open('whisper_wrapper.dll');
     } else if (Platform.isLinux) {
-      return DynamicLibrary.open('libwhisper_ggml.so');
+      return DynamicLibrary.open('libwhisper_wrapper.so');
     } else {
       return DynamicLibrary.process();
     }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
-import 'package:whisper_ggml/whisper_ggml.dart';
+import 'package:whisper_wrapper/whisper_wrapper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -99,37 +99,42 @@ class _MyHomePageState extends State<MyHomePage> {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: colors.outlineVariant),
       ),
-      child: transcript == null
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.subtitles_outlined, size: 48, color: colors.outline),
-                const SizedBox(height: 12),
-                Text(
-                  'Transcribed text will appear here',
-                  style: TextStyle(color: colors.outline),
+      child:
+          transcript == null
+              ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.subtitles_outlined,
+                    size: 48,
+                    color: colors.outline,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Transcribed text will appear here',
+                    style: TextStyle(color: colors.outline),
+                  ),
+                ],
+              )
+              : SingleChildScrollView(
+                child: SelectableText(
+                  transcript!,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-              ],
-            )
-          : SingleChildScrollView(
-              child: SelectableText(
-                transcript!,
-                style: Theme.of(context).textTheme.titleLarge,
               ),
-            ),
     );
   }
 
   Widget _statusBar(ColorScheme colors) {
     final (IconData, String)? status = switch ((activeMode, isTranscribing)) {
       (MicMode.live, _) => (
-          Icons.graphic_eq,
-          'Listening — text updates as you speak',
-        ),
+        Icons.graphic_eq,
+        'Listening — text updates as you speak',
+      ),
       (MicMode.classic, _) => (
-          Icons.fiber_manual_record,
-          'Recording — transcribes when you stop',
-        ),
+        Icons.fiber_manual_record,
+        'Recording — transcribes when you stop',
+      ),
       (MicMode.none, true) => (Icons.hourglass_top, 'Transcribing…'),
       _ => null,
     };
@@ -207,12 +212,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> initModel() async {
     try {
       /// Try initializing the model from assets
-      final bytesBase =
-          await rootBundle.load('assets/ggml-${model.modelName}.bin');
+      final bytesBase = await rootBundle.load(
+        'assets/ggml-${model.modelName}.bin',
+      );
       final modelPathBase = await whisperController.getPath(model);
       final fileBase = File(modelPathBase);
-      await fileBase.writeAsBytes(bytesBase.buffer
-          .asUint8List(bytesBase.offsetInBytes, bytesBase.lengthInBytes));
+      await fileBase.writeAsBytes(
+        bytesBase.buffer.asUint8List(
+          bytesBase.offsetInBytes,
+          bytesBase.lengthInBytes,
+        ),
+      );
     } catch (e) {
       /// On error try downloading the model
       await whisperController.downloadModel(model);
@@ -350,8 +360,10 @@ class _MyHomePageState extends State<MyHomePage> {
           path: '${appDirectory.path}/test.wav',
         );
       } else {
-        await audioRecorder.start(const RecordConfig(),
-            path: '${appDirectory.path}/test.m4a');
+        await audioRecorder.start(
+          const RecordConfig(),
+          path: '${appDirectory.path}/test.m4a',
+        );
       }
 
       setState(() => activeMode = MicMode.classic);
@@ -364,9 +376,9 @@ class _MyHomePageState extends State<MyHomePage> {
     await tempDir.create(recursive: true);
     final asset = await rootBundle.load('assets/jfk.wav');
     final String jfkPath = "${tempDir.path}/jfk.wav";
-    final File convertedFile = await File(jfkPath).writeAsBytes(
-      asset.buffer.asUint8List(),
-    );
+    final File convertedFile = await File(
+      jfkPath,
+    ).writeAsBytes(asset.buffer.asUint8List());
 
     setState(() => isTranscribing = true);
 

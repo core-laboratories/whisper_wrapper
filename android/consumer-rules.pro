@@ -1,7 +1,7 @@
-# whisper_ggml consumer rules — merged into the R8 configuration of every
+# whisper_wrapper consumer rules — merged into the R8 configuration of every
 # app that depends on this plugin.
 #
-# whisper_ggml depends on a forked ffmpeg-kit (com.antonkarpenko.ffmpegkit)
+# whisper_wrapper depends on a forked ffmpeg-kit (com.antonkarpenko.ffmpegkit)
 # that is loaded partly via reflection and JNI. R8 in release builds can
 # strip or rename its classes; the resulting exception during plugin
 # registration aborts GeneratedPluginRegistrant and leaves later plugins

@@ -1,23 +1,9 @@
-<div align="center">
+# Whisper Wrapper
 
-# Whisper GGML
-
-_On-device speech-to-text for Flutter, powered by [whisper.cpp](https://github.com/ggml-org/whisper.cpp) v1.9.1._
-
-<p align="center">
-  <a href="https://pub.dev/packages/whisper_ggml">
-     <img src="https://img.shields.io/pub/v/whisper_ggml?logo=dart&color=blue" alt="pub">
-  </a>
-  <a href="https://github.com/ggml-org/whisper.cpp">
-     <img src="https://img.shields.io/badge/whisper.cpp-v1.9.1-green" alt="whisper.cpp">
-  </a>
-  <a href="https://buymeacoffee.com/sk3llo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="21" width="114"></a>
-</p>
+_On-device speech-to-text for Flutter, powered by [whisper.cpp](https://github.com/ggml-org/whisper.cpp) v1.9.3._
 
 Transcribe audio files or **transcribe live while the user speaks** — fully
 on-device, no server, no API keys.
-
-</div>
 
 ## Highlights
 
@@ -31,14 +17,14 @@ on-device, no server, no API keys.
   `'auto'` to detect.
 - 🎛 **Decoding controls** — vocabulary biasing, context conditioning, and
   non-speech token suppression exposed from whisper.cpp.
-- ⚡ **Fast** — whisper.cpp v1.9.1 with Accelerate on Apple platforms;
+- ⚡ **Fast** — whisper.cpp v1.9.3 with Accelerate on Apple platforms;
   an 11-second clip transcribes in ~0.4 s with the `base` model on an
   Apple Silicon Mac.
 
 ## Supported platforms
 
 | Platform | Minimum version |
-|----------|-----------------|
+| -------- | --------------- |
 | Android  | API 21          |
 | iOS      | 15.6            |
 | macOS    | 10.15           |
@@ -49,7 +35,7 @@ on-device, no server, no API keys.
 
 ```yaml
 dependencies:
-  whisper_ggml: ^2.6.0
+  whisper_wrapper: ^3.0.0
 ```
 
 Requires Dart 3.7+ (Flutter 3.29+).
@@ -57,7 +43,7 @@ Requires Dart 3.7+ (Flutter 3.29+).
 ## Quick start
 
 ```dart
-import 'package:whisper_ggml/whisper_ggml.dart';
+import 'package:whisper_wrapper/whisper_wrapper.dart';
 
 final controller = WhisperController();
 
@@ -157,13 +143,13 @@ Good to know:
 
 ## Models
 
-| Model | Multilingual | English-only |
-|-------|--------------|--------------|
-| tiny   | `WhisperModel.tiny`   | `WhisperModel.tinyEn`   |
-| base   | `WhisperModel.base`   | `WhisperModel.baseEn`   |
-| small  | `WhisperModel.small`  | `WhisperModel.smallEn`  |
-| medium | `WhisperModel.medium` | `WhisperModel.mediumEn` |
-| large-v3 | `WhisperModel.large` | —                      |
+| Model    | Multilingual          | English-only            |
+| -------- | --------------------- | ----------------------- |
+| tiny     | `WhisperModel.tiny`   | `WhisperModel.tinyEn`   |
+| base     | `WhisperModel.base`   | `WhisperModel.baseEn`   |
+| small    | `WhisperModel.small`  | `WhisperModel.smallEn`  |
+| medium   | `WhisperModel.medium` | `WhisperModel.mediumEn` |
+| large-v3 | `WhisperModel.large`  | —                       |
 
 Smaller models are faster; larger models are more accurate. `tiny` and
 `base` are good defaults for live transcription; `small` is a strong
@@ -173,11 +159,11 @@ accuracy/speed balance for file transcription on modern phones.
 
 Available on both `transcribe` and `transcribeLive`:
 
-| Option | Default | What it does |
-|--------|---------|--------------|
-| `initialPrompt` | `null` | Biases decoding toward the vocabulary, names, and punctuation it contains — useful for domain-specific terms that otherwise get misrecognised. Decoding also mimics the prompt's *style*: an unpunctuated prompt tends to produce unpunctuated output. |
-| `noContext` | `false` | Stops whisper from conditioning on prior-segment transcripts (like Python whisper's `condition_on_previous_text=False`). Helps against hallucinated repetition on short, independent utterances. |
-| `suppressNonSpeechTokens` | `false` | Suppresses bracketed annotations such as `[BLANK_AUDIO]` or `[music]`. Side effect: real sounds may decode as plausible-looking words instead, which is why the example keeps it off. |
+| Option                    | Default | What it does                                                                                                                                                                                                                                           |
+| ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `initialPrompt`           | `null`  | Biases decoding toward the vocabulary, names, and punctuation it contains — useful for domain-specific terms that otherwise get misrecognised. Decoding also mimics the prompt's _style_: an unpunctuated prompt tends to produce unpunctuated output. |
+| `noContext`               | `false` | Stops whisper from conditioning on prior-segment transcripts (like Python whisper's `condition_on_previous_text=False`). Helps against hallucinated repetition on short, independent utterances.                                                       |
+| `suppressNonSpeechTokens` | `false` | Suppresses bracketed annotations such as `[BLANK_AUDIO]` or `[music]`. Side effect: real sounds may decode as plausible-looking words instead, which is why the example keeps it off.                                                                  |
 
 ## Keeping the model loaded between transcriptions
 
@@ -206,8 +192,8 @@ Good to know:
 - The parked model keeps its weights in RAM (from ~100 MB for `tiny` up to
   several GB for the large models) until you release it. On phones,
   release it when dictation ends rather than keeping it forever.
-- One model stays resident per process; parking a different model
-  replaces and frees the previous one. A request for a *different* model
+- One model stays resident per process; parking a _different_ model
+  replaces and frees the previous one. A request for a _different_ model
   with `keepModelLoaded: false` leaves the parked one alone.
 - Requests stay fully concurrent: a second transcription that arrives
   while the parked model is in use simply loads its own copy, exactly as
@@ -221,5 +207,29 @@ Good to know:
   since ~2013). For very old CPUs, build with `-DWHISPER_GGML_AVX2=OFF`.
 - Android debug builds run the Dart layer in JIT mode; use `--release` for
   representative performance.
-- The bundled whisper.cpp v1.9.1 is roughly **15× faster** than the engine
-  in versions before 2.0.0.
+- The bundled whisper.cpp v1.9.3 retains the major performance improvements
+  of the engine in versions before 2.0.0.
+
+## Updating whisper.cpp
+
+The CPU-only native source is vendored so pub.dev and Git consumers receive a
+complete, reproducible plugin without nested repositories. To update all
+platform copies to the latest stable upstream release, run:
+
+```sh
+./tool/update_whisper_cpp.sh
+```
+
+The updater resolves the newest stable `vX.Y.Z` tag, copies the maintained
+CPU source set to Android, iOS, and macOS, updates platform version constants,
+and records both the tag and exact upstream commit in
+[`WHISPER_CPP_VERSION`](WHISPER_CPP_VERSION). Pass a tag explicitly for a
+reproducible refresh, for example `./tool/update_whisper_cpp.sh v1.9.3`.
+
+Pass a tag such as `v1.9.3` to reproduce a specific release. Review and commit
+the resulting files in this repository; no commit to the upstream repository
+is involved.
+
+## License
+
+Whisper Wrapper is distributed under the [MIT License](LICENSE).

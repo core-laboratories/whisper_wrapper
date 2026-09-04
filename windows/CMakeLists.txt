@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 # Project-level configuration.
-set(PROJECT_NAME "whisper_ggml")
+set(PROJECT_NAME "whisper_wrapper")
 project(${PROJECT_NAME} LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # The native sources are shared with Android; both platforms build the same
-# vendored whisper.cpp v1.9.1 (CPU backend) plus the JSON request/stream API
+# vendored whisper.cpp v1.9.3 (CPU backend) plus the JSON request/stream API
 # in main.cpp.
 set(W ${CMAKE_CURRENT_SOURCE_DIR}/../android/src/whisper/whisper.cpp)
 
@@ -32,35 +32,42 @@ if(MSVC)
   endforeach()
 endif()
 
-# The arch/ sources are internally guarded per architecture, so compiling
-# arm + x86 everywhere is safe; the wrong-arch files compile to nothing.
 file(GLOB GGML_SRC
     ${W}/ggml/src/*.c
     ${W}/ggml/src/*.cpp
     ${W}/ggml/src/ggml-cpu/*.c
     ${W}/ggml/src/ggml-cpu/*.cpp
-    ${W}/ggml/src/ggml-cpu/arch/arm/*.c
-    ${W}/ggml/src/ggml-cpu/arch/arm/*.cpp
-    ${W}/ggml/src/ggml-cpu/arch/x86/*.c
-    ${W}/ggml/src/ggml-cpu/arch/x86/*.cpp
     ${W}/ggml/src/ggml-cpu/amx/*.cpp
 )
 
-add_library(whisper_ggml_core STATIC ${GGML_SRC} ${W}/src/whisper.cpp)
-set_target_properties(whisper_ggml_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
-target_include_directories(whisper_ggml_core PUBLIC
+if(CMAKE_GENERATOR_PLATFORM MATCHES "ARM64" OR CMAKE_SYSTEM_PROCESSOR MATCHES "ARM64|aarch64")
+  file(GLOB GGML_ARCH_SRC
+      ${W}/ggml/src/ggml-cpu/arch/arm/*.c
+      ${W}/ggml/src/ggml-cpu/arch/arm/*.cpp
+  )
+else()
+  file(GLOB GGML_ARCH_SRC
+      ${W}/ggml/src/ggml-cpu/arch/x86/*.c
+      ${W}/ggml/src/ggml-cpu/arch/x86/*.cpp
+  )
+endif()
+list(APPEND GGML_SRC ${GGML_ARCH_SRC})
+
+add_library(whisper_wrapper_core STATIC ${GGML_SRC} ${W}/src/whisper.cpp)
+set_target_properties(whisper_wrapper_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_include_directories(whisper_wrapper_core PUBLIC
     ${W}/include
     ${W}/ggml/include
     ${W}/ggml/src
     ${W}/ggml/src/ggml-cpu
     ${W}/src
 )
-target_compile_definitions(whisper_ggml_core PUBLIC GGML_USE_CPU)
+target_compile_definitions(whisper_wrapper_core PUBLIC GGML_USE_CPU)
 # Upstream generates these from git; we vendor a fixed release.
-target_compile_definitions(whisper_ggml_core PRIVATE
-    GGML_VERSION="1.9.1"
-    GGML_COMMIT="whisper.cpp-v1.9.1"
-    WHISPER_VERSION="1.9.1"
+target_compile_definitions(whisper_wrapper_core PRIVATE
+    GGML_VERSION="1.9.3"
+    GGML_COMMIT="whisper.cpp-v1.9.3"
+    WHISPER_VERSION="1.9.3"
 )
 
 # AVX2 matches upstream whisper.cpp's standard x64 Windows binaries and is
@@ -71,23 +78,23 @@ target_compile_definitions(whisper_ggml_core PRIVATE
 option(WHISPER_GGML_AVX2 "Build the x64 whisper backend with AVX2/FMA/F16C" ON)
 if(MSVC AND WHISPER_GGML_AVX2 AND NOT CMAKE_GENERATOR_PLATFORM MATCHES "ARM64"
    AND NOT CMAKE_SYSTEM_PROCESSOR MATCHES "ARM64|aarch64")
-  target_compile_options(whisper_ggml_core PRIVATE /arch:AVX2)
-  target_compile_definitions(whisper_ggml_core PRIVATE
+  target_compile_options(whisper_wrapper_core PRIVATE /arch:AVX2)
+  target_compile_definitions(whisper_wrapper_core PRIVATE
       __SSE3__ __SSSE3__ __AVX__ __AVX2__ __FMA__ __F16C__
   )
 endif()
 
-# The plugin DLL. Dart opens it by name ('whisper_ggml.dll'); the exported
+# The plugin DLL. Dart opens it by name ('whisper_wrapper.dll'); the exported
 # request/stream_* functions are marked __declspec(dllexport) in main.h.
-add_library(whisper_ggml_plugin SHARED
+add_library(whisper_wrapper_plugin SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/../android/src/whisper/main.cpp
 )
-set_target_properties(whisper_ggml_plugin PROPERTIES OUTPUT_NAME "whisper_ggml")
-target_compile_definitions(whisper_ggml_plugin PUBLIC DART_SHARED_LIB)
-target_link_libraries(whisper_ggml_plugin PRIVATE whisper_ggml_core)
+set_target_properties(whisper_wrapper_plugin PROPERTIES OUTPUT_NAME "whisper_wrapper")
+target_compile_definitions(whisper_wrapper_plugin PUBLIC DART_SHARED_LIB)
+target_link_libraries(whisper_wrapper_plugin PRIVATE whisper_wrapper_core)
 
 # List of absolute paths to libraries that should be bundled with the plugin.
-set(whisper_ggml_bundled_libraries
-    $<TARGET_FILE:whisper_ggml_plugin>
+set(whisper_wrapper_bundled_libraries
+    $<TARGET_FILE:whisper_wrapper_plugin>
     PARENT_SCOPE
 )

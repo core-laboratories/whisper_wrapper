@@ -1,6 +1,3 @@
-// vendored patch: whole-file arch guard (sources are compiled on
-// every architecture in this build system, unlike upstream CMake)
-#if defined(__x86_64__) || defined(__i386__) || defined(_M_IX86) || defined(_M_X64)
 #include "ggml-backend-impl.h"
 
 #if defined(__x86_64__) || (defined(_MSC_VER) && defined(_M_AMD64))
@@ -328,5 +325,3 @@ static int ggml_backend_cpu_x86_score() {
 GGML_BACKEND_DL_SCORE_IMPL(ggml_backend_cpu_x86_score)
 
 #endif // defined(__x86_64__) || (defined(_MSC_VER) && defined(_M_AMD64))
-
-#endif // arch guard

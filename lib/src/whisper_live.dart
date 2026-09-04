@@ -9,8 +9,8 @@ import 'package:universal_io/io.dart';
 
 /// Native streaming bindings.
 typedef _StreamStartNative = Pointer<Utf8> Function(Pointer<Utf8> body);
-typedef _StreamFeedNative = Pointer<Utf8> Function(
-    Pointer<Float> pcm, Int32 nSamples);
+typedef _StreamFeedNative =
+    Pointer<Utf8> Function(Pointer<Float> pcm, Int32 nSamples);
 typedef _StreamFeedDart = Pointer<Utf8> Function(Pointer<Float> pcm, int n);
 typedef _StreamStopNative = Pointer<Utf8> Function();
 
@@ -84,8 +84,7 @@ Future<WhisperLiveSession> startWhisperLiveSession({
   double gateNoiseFloorCap = 0.01,
 }) async {
   final ReceivePort fromWorker = ReceivePort();
-  final Isolate worker =
-      await Isolate.spawn(_liveWorker, fromWorker.sendPort);
+  final Isolate worker = await Isolate.spawn(_liveWorker, fromWorker.sendPort);
 
   final StreamController<String> partials = StreamController<String>();
   final Completer<SendPort> ready = Completer<SendPort>();
@@ -172,9 +171,9 @@ DynamicLibrary _openLib() {
   if (Platform.isAndroid) {
     return DynamicLibrary.open('libwhisper.so');
   } else if (Platform.isWindows) {
-    return DynamicLibrary.open('whisper_ggml.dll');
+    return DynamicLibrary.open('whisper_wrapper.dll');
   } else if (Platform.isLinux) {
-    return DynamicLibrary.open('libwhisper_ggml.so');
+    return DynamicLibrary.open('libwhisper_wrapper.so');
   } else {
     return DynamicLibrary.process();
   }
@@ -183,11 +182,15 @@ DynamicLibrary _openLib() {
 void _liveWorker(SendPort toMain) {
   final DynamicLibrary lib = _openLib();
 
-  final start =
-      lib.lookupFunction<_StreamStartNative, _StreamStartNative>('stream_start');
-  final feed = lib.lookupFunction<_StreamFeedNative, _StreamFeedDart>('stream_feed');
-  final stopFn =
-      lib.lookupFunction<_StreamStopNative, _StreamStopNative>('stream_stop');
+  final start = lib.lookupFunction<_StreamStartNative, _StreamStartNative>(
+    'stream_start',
+  );
+  final feed = lib.lookupFunction<_StreamFeedNative, _StreamFeedDart>(
+    'stream_feed',
+  );
+  final stopFn = lib.lookupFunction<_StreamStopNative, _StreamStopNative>(
+    'stream_stop',
+  );
 
   final ReceivePort inbox = ReceivePort();
   toMain.send(['ready', inbox.sendPort]);
@@ -224,8 +227,9 @@ void _liveWorker(SendPort toMain) {
         if (pendingByte >= 0 ||
             bytes.offsetInBytes.isOdd ||
             bytes.length.isOdd) {
-          final Uint8List merged =
-              Uint8List(bytes.length + (pendingByte >= 0 ? 1 : 0));
+          final Uint8List merged = Uint8List(
+            bytes.length + (pendingByte >= 0 ? 1 : 0),
+          );
           int offset = 0;
           if (pendingByte >= 0) merged[offset++] = pendingByte;
           merged.setRange(offset, offset + bytes.length, bytes);
@@ -238,8 +242,10 @@ void _liveWorker(SendPort toMain) {
           }
         }
         if (bytes.isEmpty) return;
-        final Int16List samples =
-            bytes.buffer.asInt16List(bytes.offsetInBytes, bytes.length ~/ 2);
+        final Int16List samples = bytes.buffer.asInt16List(
+          bytes.offsetInBytes,
+          bytes.length ~/ 2,
+        );
         final Pointer<Float> pcm = malloc.allocate<Float>(
           samples.length * sizeOf<Float>(),
         );

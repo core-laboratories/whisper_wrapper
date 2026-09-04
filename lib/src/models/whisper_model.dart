@@ -41,9 +41,10 @@ enum WhisperModel {
   Uri get modelUri {
     // tinydiarize models live in a different HF repo; same special case
     // as upstream whisper.cpp's download-ggml-model script.
-    final String repo = modelName.contains('tdrz')
-        ? 'akashmjn/tinydiarize-whisper.cpp'
-        : 'ggerganov/whisper.cpp';
+    final String repo =
+        modelName.contains('tdrz')
+            ? 'akashmjn/tinydiarize-whisper.cpp'
+            : 'ggerganov/whisper.cpp';
     return Uri.parse(
       'https://huggingface.co/$repo/resolve/main/ggml-$modelName.bin',
     );

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:whisper_ggml/whisper_ggml.dart';
-import 'package:whisper_ggml/src/models/requests/transcribe_request_dto.dart';
+import 'package:whisper_wrapper/whisper_wrapper.dart';
+import 'package:whisper_wrapper/src/models/requests/transcribe_request_dto.dart';
 
 void main() {
   TranscribeRequest request({String? initialPrompt, bool noContext = false}) {
@@ -109,10 +109,7 @@ void main() {
       expect(defaultBody['keep_model_loaded'], isFalse);
 
       final dto = TranscribeRequestDto.fromTranscribeRequest(
-        const TranscribeRequest(
-          audio: '/tmp/audio.wav',
-          keepModelLoaded: true,
-        ),
+        const TranscribeRequest(audio: '/tmp/audio.wav', keepModelLoaded: true),
         '/tmp/model.bin',
       );
       final body = json.decode(dto.toRequestString()) as Map<String, dynamic>;

@@ -9,7 +9,7 @@ buildscript {
 
     dependencies {
         // The Android Gradle Plugin knows how to build native code with the NDK.
-        classpath 'com.android.tools.build:gradle:8.4.2'
+        classpath 'com.android.tools.build:gradle:8.11.1'
     }
 }
 
@@ -23,10 +23,10 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    namespace "com.devac.whisper_ggml"
+    namespace "com.devac.whisper_wrapper"
     ndkVersion "29.0.13113456"
 
-    compileSdk 34
+    compileSdk 36
 
     // Invoke the shared CMake build with the Android Gradle Plugin.
     externalNativeBuild {
@@ -54,7 +54,7 @@ android {
         }
         externalNativeBuild {
             cmake {
-                // No thin-LTO: with the full whisper.cpp v1.9.1 source tree
+                // No thin-LTO: with the full whisper.cpp v1.9.3 source tree
                 // it multiplies link time for no meaningful size win.
                 cFlags "-O3 -ffunction-sections -fdata-sections"
                 cppFlags "-O3 -ffunction-sections -fdata-sections"

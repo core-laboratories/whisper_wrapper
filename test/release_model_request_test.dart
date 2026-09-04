@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:whisper_ggml/src/models/requests/release_model_request.dart';
+import 'package:whisper_wrapper/src/models/requests/release_model_request.dart';
 
 void main() {
   group('ReleaseModelRequest serialization', () {

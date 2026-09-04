@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the transcribe method from the WhisperController class, for the Dart programming language.">
+  <title>transcribe method - WhisperController class - whisper_wrapper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">whisper_wrapper</a></li>
+    <li><a href="../../whisper_wrapper/">whisper_wrapper.dart</a></li>
+    <li><a href="../../whisper_wrapper/WhisperController-class.html">WhisperController</a></li>
+    <li class="self-crumb">transcribe method</li>
+  </ol>
+  <div class="self-name">transcribe</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="whisper_wrapper&#47;WhisperController-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">transcribe</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">TranscribeResult?</span>&gt;</span></span>
+<span class="name ">transcribe</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="transcribe-param-model"><span>required</span> <span class="type-annotation"><a href="../../whisper_wrapper/WhisperModel.html">WhisperModel</a></span> <span class="parameter-name">model</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-audioPath"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">audioPath</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-lang"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">lang</span> = <span class="default-value">&#39;en&#39;</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-diarize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">diarize</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-initialPrompt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">initialPrompt</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-noContext"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noContext</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-suppressNonSpeechTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">suppressNonSpeechTokens</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-withSegments"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">withSegments</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-splitOnWord"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">splitOnWord</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-keepModelLoaded"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepModelLoaded</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="transcribe-param-onProgress"><span class="type-annotation">void</span> <span class="parameter-name">onProgress</span>(<ol class="parameter-list single-line"> <li><span class="parameter" id="param-percent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">percent</span></span></li>
+</ol>)?, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Transcribe <code>audioPath</code> with <code>model</code>.</p>
+<p>When <code>withSegments</code> is <code>true</code>, the result's
+<code>WhisperTranscribeResponse.segments</code> carries per-segment timestamps
+(<code>fromTs</code>/<code>toTs</code>) alongside the text; combine with <code>splitOnWord</code> to
+get one segment per word instead of per phrase.</p>
+<p><code>diarize</code> enables tinydiarize speaker-turn detection: with a <code>-tdrz</code>
+model (<a href="../../whisper_wrapper/WhisperModel.html">WhisperModel.smallEnTdrz</a>, English only) and <code>withSegments</code>,
+segments where the speaker changes afterwards have
+<code>speakerTurnNext == true</code>. Has no effect with regular models.</p>
+<p><code>onProgress</code> reports transcription progress as a 0–100 percentage
+(coarse steps) while inference runs.</p>
+<p><code>keepModelLoaded</code> keeps the model resident in native memory after the
+request, so the next transcription with the same model skips the
+multi-second load — see <code>TranscribeRequest.keepModelLoaded</code>. Release
+it with <a href="../../whisper_wrapper/WhisperController/releaseModel.html">releaseModel</a>.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;TranscribeResult?&gt; transcribe({
+  required WhisperModel model,
+  required String audioPath,
+  String lang = &#39;en&#39;,
+  bool diarize = false,
+  String? initialPrompt,
+  bool noContext = false,
+  bool suppressNonSpeechTokens = false,
+  bool withSegments = false,
+  bool splitOnWord = false,
+  bool keepModelLoaded = false,
+  void Function(int percent)? onProgress,
+}) async {
+  await initModel(model);
+
+  final Whisper whisper = Whisper(model: model);
+  final DateTime start = DateTime.now();
+  const bool translate = false;
+
+  try {
+    final WhisperTranscribeResponse transcription = await whisper.transcribe(
+      transcribeRequest: TranscribeRequest(
+        audio: audioPath,
+        language: lang,
+        isTranslate: translate,
+        isNoTimestamps: !withSegments,
+        splitOnWord: splitOnWord,
+        isRealtime: true,
+        diarize: diarize,
+        initialPrompt: initialPrompt,
+        noContext: noContext,
+        suppressNonSpeechTokens: suppressNonSpeechTokens,
+        keepModelLoaded: keepModelLoaded,
+      ),
+      modelPath: _modelPath,
+      onProgress: onProgress,
+    );
+
+    final Duration transcriptionDuration = DateTime.now().difference(start);
+
+    return TranscribeResult(
+      time: transcriptionDuration,
+      transcription: transcription,
+    );
+  } catch (e) {
+    debugPrint(e.toString());
+    return null;
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">whisper_wrapper</a></li>
+    <li><a href="../../whisper_wrapper/">whisper_wrapper</a></li>
+    <li><a href="../../whisper_wrapper/WhisperController-class.html">WhisperController</a></li>
+    <li class="self-crumb">transcribe method</li>
+</ol>
+
+    <h5>WhisperController class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    whisper_wrapper
+      3.0.0
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

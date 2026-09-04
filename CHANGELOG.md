@@ -1,3 +1,13 @@
+## 3.0.0
+
+* Renamed the package from `whisper_ggml` to `whisper_wrapper` under Core Laboratories.
+* Upgraded the CPU-only native engine from whisper.cpp v1.9.1 to v1.9.3.
+* Added optional Silero VAD passthrough with `vadModelPath` and `vadSpeechPadMs`. VAD remains disabled unless a model path is supplied.
+* Added native-engine update tooling, package validation and release workflows, and structured issue templates.
+* Added an exact upstream engine revision manifest and architecture-correct native builds for Android and Apple universal binaries.
+* Updated project metadata and documentation and removed donation links.
+* Updated the example recorder to `record` 7.1.1, FFI generation to `ffigen` 21, analysis rules to `very_good_analysis` 10.3, and aligned the Android build with AGP 8.11.1, Kotlin 2.3.20, compile SDK 36, and NDK 29.
+
 ## 2.6.0
 
 * Opt-in resident model between transcriptions ([#26](https://github.com/sk3llo/whisper_ggml/issues/26)): pass `keepModelLoaded: true` to `transcribe` (controller and low-level API) and the loaded `whisper_context` is parked in the native layer instead of freed, so the next request with the same model file skips the multi-second load — the difference between usable and not for push-to-talk dictation. Free it with the new `releaseModel()` (controller and `Whisper`), or by transcribing once more with the flag off. Implemented on all five platforms (the Android/Windows/Linux shim and the iOS/macOS shim)
@@ -22,7 +32,7 @@
 
 ## 2.2.0
 
-* Added **Linux support** (x64): the vendored whisper.cpp v1.9.1 builds into `libwhisper_ggml.so` through the standard Flutter Linux CMake toolchain — both one-shot (`transcribe`) and live (`transcribeLive`) transcription work
+* Added **Linux support** (x64): the vendored whisper.cpp v1.9.1 builds into `libwhisper_wrapper.so` through the standard Flutter Linux CMake toolchain — both one-shot (`transcribe`) and live (`transcribeLive`) transcription work
 * Removed the stale prebuilt `libggml*.so` binaries from `linux/` — leftovers that never constituted a working implementation (no whisper code, wrong bundling variable) and only inflated the package
 * Like Windows, Linux x64 targets AVX2 by default (`-DWHISPER_GGML_AVX2=OFF` for baseline SSE2) and uses an `ffmpeg` executable from `PATH` for non-WAV input
 * Example app: added the Linux runner; the Record button captures 16 kHz WAV directly on Linux
@@ -31,7 +41,7 @@
 
 ## 2.1.0
 
-* Added **Windows support** (x64): the vendored whisper.cpp v1.9.1 now also builds into `whisper_ggml.dll` through the standard Flutter Windows CMake toolchain — both one-shot (`transcribe`) and live (`transcribeLive`) transcription work
+* Added **Windows support** (x64): the vendored whisper.cpp v1.9.1 now also builds into `whisper_wrapper.dll` through the standard Flutter Windows CMake toolchain — both one-shot (`transcribe`) and live (`transcribeLive`) transcription work
 * Windows builds target AVX2 by default (matching upstream whisper.cpp's standard x64 binaries); pass `-DWHISPER_GGML_AVX2=OFF` to the plugin CMake for a baseline SSE2 build
 * Audio conversion on Windows uses an `ffmpeg` executable from `PATH` when available (ffmpeg_kit has no Windows implementation); without it, input must already be 16 kHz mono WAV
 * Native inference stays optimized (`/O2`) in Windows debug builds, matching the iOS/macOS behaviour
@@ -118,4 +128,3 @@
 ## 1.0.0
 
 * Added support for Android and iOS
-

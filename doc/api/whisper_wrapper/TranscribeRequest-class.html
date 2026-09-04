@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the TranscribeRequest class from the whisper_wrapper library, for the Dart programming language.">
+  <title>TranscribeRequest class - whisper_wrapper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">whisper_wrapper</a></li>
+    <li><a href="../whisper_wrapper/">whisper_wrapper.dart</a></li>
+    <li class="self-crumb">TranscribeRequest class</li>
+  </ol>
+  <div class="self-name">TranscribeRequest</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="whisper_wrapper&#47;whisper_wrapper-library-sidebar.html"
+    data-below-sidebar="whisper_wrapper&#47;TranscribeRequest-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">TranscribeRequest</span> class 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">abstract</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Transcription request parameters</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a></li>
+  </ul></dd>
+        
+  <dt>Annotations</dt>
+  <dd>
+    <ul class="annotation-list clazz-relationships">
+        <li>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/freezed-constant.html">freezed</a></li>
+    </ul>
+  </dd>
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="TranscribeRequest.new" class="callable">
+          <span class="name"><a href="../whisper_wrapper/TranscribeRequest/TranscribeRequest.html">TranscribeRequest</a></span><span class="signature">({<span class="parameter" id="param-audio"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">audio</span>, </span><span class="parameter" id="param-isTranslate"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTranslate</span>, </span><span class="parameter" id="param-threads"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(6)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">threads</span>, </span><span class="parameter" id="param-isVerbose"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isVerbose</span>, </span><span class="parameter" id="param-language"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(&#39;en&#39;)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span>, </span><span class="parameter" id="param-isSpecialTokens"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isSpecialTokens</span>, </span><span class="parameter" id="param-isNoTimestamps"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isNoTimestamps</span>, </span><span class="parameter" id="param-isRealtime"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isRealtime</span>, </span><span class="parameter" id="param-nProcessors"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(1)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">nProcessors</span>, </span><span class="parameter" id="param-splitOnWord"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">splitOnWord</span>, </span><span class="parameter" id="param-noFallback"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noFallback</span>, </span><span class="parameter" id="param-diarize"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">diarize</span>, </span><span class="parameter" id="param-speedUp"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">speedUp</span>, </span><span class="parameter" id="param-realtimeStream"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(null)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">realtimeStream</span>, </span><span class="parameter" id="param-initialPrompt"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(null)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">initialPrompt</span>, </span><span class="parameter" id="param-noContext"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noContext</span>, </span><span class="parameter" id="param-suppressNonSpeechTokens"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">suppressNonSpeechTokens</span>, </span><span class="parameter" id="param-keepModelLoaded"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(false)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepModelLoaded</span>, </span><span class="parameter" id="param-vadModelPath"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(null)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">vadModelPath</span>, </span><span class="parameter" id="param-vadSpeechPadMs"><span>@<a href="https://pub.dev/documentation/freezed_annotation/3.1.0/freezed_annotation/Default/Default.html">Default</a>(null)</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">vadSpeechPadMs</span></span>})</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="audio" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/audio.html">audio</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="copyWith" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/copyWith.html">copyWith</a></span>
+  <span class="signature">&#8594; $TranscribeRequestCopyWith<span class="signature">&lt;<wbr><span class="type-parameter"><a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  Create a copy of TranscribeRequest
+with the given fields replaced by the non-null parameter values.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="diarize" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/diarize.html">diarize</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="initialPrompt" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/initialPrompt.html">initialPrompt</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Optional text passed to whisper.cpp as <code>whisper_full_params.initial_prompt</code>.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isNoTimestamps" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/isNoTimestamps.html">isNoTimestamps</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isRealtime" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/isRealtime.html">isRealtime</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isSpecialTokens" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/isSpecialTokens.html">isSpecialTokens</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isTranslate" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/isTranslate.html">isTranslate</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="isVerbose" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/isVerbose.html">isVerbose</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="keepModelLoaded" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/keepModelLoaded.html">keepModelLoaded</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Keep the model resident in native memory after this request.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="language" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/language.html">language</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noContext" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/noContext.html">noContext</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Sets <code>whisper_full_params.no_context</code> on the native side. Equivalent
+to Python whisper's <code>condition_on_previous_text=False</code>.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noFallback" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/noFallback.html">noFallback</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="nProcessors" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/nProcessors.html">nProcessors</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="realtimeStream" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/realtimeStream.html">realtimeStream</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="speedUp" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/speedUp.html">speedUp</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="splitOnWord" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/splitOnWord.html">splitOnWord</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="suppressNonSpeechTokens" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/suppressNonSpeechTokens.html">suppressNonSpeechTokens</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Sets <code>whisper_full_params.suppress_non_speech_tokens</code> on the
+native side.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="threads" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/threads.html">threads</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="vadModelPath" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/vadModelPath.html">vadModelPath</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Path to a Silero VAD model (e.g. <code>ggml-silero-v5.1.2.bin</code>),
+enabling whisper.cpp's built-in voice-activity detection for this
+request.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="vadSpeechPadMs" class="property inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/vadSpeechPadMs.html">vadSpeechPadMs</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Padding in milliseconds kept around each detected speech segment
+when <code>vadModelPath</code> is set, so clipped first and last words stay
+intact. Null keeps whisper.cpp's default, and negative values are
+treated the same as null. Values around 100 ms work well for
+push-to-talk; much larger values can garble segment boundaries.
+Ignored when <code>vadModelPath</code> is null.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="map" class="callable">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequestPatterns/map.html">map</a></span><span class="signature">&lt;<wbr><span class="type-parameter">TResult extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="map-param-$default"><span class="type-annotation">TResult</span> <span class="parameter-name">$default</span>(<span class="parameter" id="param-value"><span class="type-annotation">_TranscribeRequest</span> <span class="parameter-name">value</span></span>)</span>)
+    <span class="returntype parameter">&#8594; TResult</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a>,
+        provided by the <a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a> extension</span>
+      </p>
+  A <code>switch</code>-like method, using callbacks.
+  
+
+</dd>
+
+        <dt id="mapOrNull" class="callable">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequestPatterns/mapOrNull.html">mapOrNull</a></span><span class="signature">&lt;<wbr><span class="type-parameter">TResult extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="mapOrNull-param-$default"><span class="type-annotation">TResult?</span> <span class="parameter-name">$default</span>(<span class="parameter" id="param-value"><span class="type-annotation">_TranscribeRequest</span> <span class="parameter-name">value</span></span>)?</span>)
+    <span class="returntype parameter">&#8594; TResult?</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a>,
+        provided by the <a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a> extension</span>
+      </p>
+  A variant of <code>map</code> that fallback to returning <code>null</code>.
+  
+
+</dd>
+
+        <dt id="maybeMap" class="callable">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequestPatterns/maybeMap.html">maybeMap</a></span><span class="signature">&lt;<wbr><span class="type-parameter">TResult extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="maybeMap-param-$default"><span class="type-annotation">TResult</span> <span class="parameter-name">$default</span>(<span class="parameter" id="param-value"><span class="type-annotation">_TranscribeRequest</span> <span class="parameter-name">value</span></span>)?, {</span><span class="parameter" id="maybeMap-param-orElse"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">orElse</span>()</span>})
+    <span class="returntype parameter">&#8594; TResult</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a>,
+        provided by the <a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a> extension</span>
+      </p>
+  A variant of <code>map</code> that fallback to returning <code>orElse</code>.
+  
+
+</dd>
+
+        <dt id="maybeWhen" class="callable">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequestPatterns/maybeWhen.html">maybeWhen</a></span><span class="signature">&lt;<wbr><span class="type-parameter">TResult extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="maybeWhen-param-$default"><span class="type-annotation">TResult</span> <span class="parameter-name">$default</span>(<span class="parameter" id="param-audio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">audio</span>, </span><span class="parameter" id="param-isTranslate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTranslate</span>, </span><span class="parameter" id="param-threads"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">threads</span>, </span><span class="parameter" id="param-isVerbose"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isVerbose</span>, </span><span class="parameter" id="param-language"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span>, </span><span class="parameter" id="param-isSpecialTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isSpecialTokens</span>, </span><span class="parameter" id="param-isNoTimestamps"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isNoTimestamps</span>, </span><span class="parameter" id="param-isRealtime"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isRealtime</span>, </span><span class="parameter" id="param-nProcessors"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">nProcessors</span>, </span><span class="parameter" id="param-splitOnWord"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">splitOnWord</span>, </span><span class="parameter" id="param-noFallback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noFallback</span>, </span><span class="parameter" id="param-diarize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">diarize</span>, </span><span class="parameter" id="param-speedUp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">speedUp</span>, </span><span class="parameter" id="param-realtimeStream"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">realtimeStream</span>, </span><span class="parameter" id="param-initialPrompt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">initialPrompt</span>, </span><span class="parameter" id="param-noContext"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noContext</span>, </span><span class="parameter" id="param-suppressNonSpeechTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">suppressNonSpeechTokens</span>, </span><span class="parameter" id="param-keepModelLoaded"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepModelLoaded</span>, </span><span class="parameter" id="param-vadModelPath"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">vadModelPath</span>, </span><span class="parameter" id="param-vadSpeechPadMs"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">vadSpeechPadMs</span></span>)?, {</span><span class="parameter" id="maybeWhen-param-orElse"><span>required</span> <span class="type-annotation">TResult</span> <span class="parameter-name">orElse</span>()</span>})
+    <span class="returntype parameter">&#8594; TResult</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a>,
+        provided by the <a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a> extension</span>
+      </p>
+  A variant of <code>when</code> that fallback to an <code>orElse</code> callback.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="when" class="callable">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequestPatterns/when.html">when</a></span><span class="signature">&lt;<wbr><span class="type-parameter">TResult extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="when-param-$default"><span class="type-annotation">TResult</span> <span class="parameter-name">$default</span>(<span class="parameter" id="param-audio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">audio</span>, </span><span class="parameter" id="param-isTranslate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTranslate</span>, </span><span class="parameter" id="param-threads"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">threads</span>, </span><span class="parameter" id="param-isVerbose"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isVerbose</span>, </span><span class="parameter" id="param-language"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span>, </span><span class="parameter" id="param-isSpecialTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isSpecialTokens</span>, </span><span class="parameter" id="param-isNoTimestamps"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isNoTimestamps</span>, </span><span class="parameter" id="param-isRealtime"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isRealtime</span>, </span><span class="parameter" id="param-nProcessors"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">nProcessors</span>, </span><span class="parameter" id="param-splitOnWord"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">splitOnWord</span>, </span><span class="parameter" id="param-noFallback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noFallback</span>, </span><span class="parameter" id="param-diarize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">diarize</span>, </span><span class="parameter" id="param-speedUp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">speedUp</span>, </span><span class="parameter" id="param-realtimeStream"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">realtimeStream</span>, </span><span class="parameter" id="param-initialPrompt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">initialPrompt</span>, </span><span class="parameter" id="param-noContext"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noContext</span>, </span><span class="parameter" id="param-suppressNonSpeechTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">suppressNonSpeechTokens</span>, </span><span class="parameter" id="param-keepModelLoaded"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepModelLoaded</span>, </span><span class="parameter" id="param-vadModelPath"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">vadModelPath</span>, </span><span class="parameter" id="param-vadSpeechPadMs"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">vadSpeechPadMs</span></span>)</span>)
+    <span class="returntype parameter">&#8594; TResult</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a>,
+        provided by the <a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a> extension</span>
+      </p>
+  A <code>switch</code>-like method, using callbacks.
+  
+
+</dd>
+
+        <dt id="whenOrNull" class="callable">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequestPatterns/whenOrNull.html">whenOrNull</a></span><span class="signature">&lt;<wbr><span class="type-parameter">TResult extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="whenOrNull-param-$default"><span class="type-annotation">TResult?</span> <span class="parameter-name">$default</span>(<span class="parameter" id="param-audio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">audio</span>, </span><span class="parameter" id="param-isTranslate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTranslate</span>, </span><span class="parameter" id="param-threads"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">threads</span>, </span><span class="parameter" id="param-isVerbose"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isVerbose</span>, </span><span class="parameter" id="param-language"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span>, </span><span class="parameter" id="param-isSpecialTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isSpecialTokens</span>, </span><span class="parameter" id="param-isNoTimestamps"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isNoTimestamps</span>, </span><span class="parameter" id="param-isRealtime"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isRealtime</span>, </span><span class="parameter" id="param-nProcessors"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">nProcessors</span>, </span><span class="parameter" id="param-splitOnWord"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">splitOnWord</span>, </span><span class="parameter" id="param-noFallback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noFallback</span>, </span><span class="parameter" id="param-diarize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">diarize</span>, </span><span class="parameter" id="param-speedUp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">speedUp</span>, </span><span class="parameter" id="param-realtimeStream"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">realtimeStream</span>, </span><span class="parameter" id="param-initialPrompt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">initialPrompt</span>, </span><span class="parameter" id="param-noContext"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">noContext</span>, </span><span class="parameter" id="param-suppressNonSpeechTokens"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">suppressNonSpeechTokens</span>, </span><span class="parameter" id="param-keepModelLoaded"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepModelLoaded</span>, </span><span class="parameter" id="param-vadModelPath"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">vadModelPath</span>, </span><span class="parameter" id="param-vadSpeechPadMs"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">vadSpeechPadMs</span></span>)?</span>)
+    <span class="returntype parameter">&#8594; TResult?</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../whisper_wrapper/TranscribeRequest-class.html">TranscribeRequest</a>,
+        provided by the <a href="../whisper_wrapper/TranscribeRequestPatterns.html">TranscribeRequestPatterns</a> extension</span>
+      </p>
+  A variant of <code>when</code> that fallback to returning <code>null</code>
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="../whisper_wrapper/TranscribeRequest/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">whisper_wrapper</a></li>
+    <li><a href="../whisper_wrapper/">whisper_wrapper</a></li>
+    <li class="self-crumb">TranscribeRequest class</li>
+</ol>
+
+    <h5>whisper_wrapper library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    whisper_wrapper
+      3.0.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

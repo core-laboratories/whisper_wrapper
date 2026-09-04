@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:whisper_ggml/whisper_ggml.dart';
+import 'package:whisper_wrapper/whisper_wrapper.dart';
 
 void main() {
   group('WhisperController.transcribeLive model arguments', () {
