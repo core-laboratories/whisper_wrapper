@@ -5,16 +5,6 @@ on:
     tags:
       - '*.*.*'
   workflow_dispatch:
-    inputs:
-      publish:
-        description: Publish to pub.dev after validation
-        required: true
-        default: false
-        type: boolean
-
-permissions:
-  contents: read
-  id-token: write
 
 jobs:
   validate:
@@ -22,20 +12,7 @@ jobs:
 
   publish:
     needs: validate
-    if: startsWith(github.ref, 'refs/tags/') || inputs.publish
-    runs-on: ubuntu-latest
-    environment: pub.dev
-    steps:
-      - uses: actions/checkout@v6
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-      - name: Verify tag matches package version
-        if: startsWith(github.ref, 'refs/tags/')
-        shell: bash
-        run: |
-          package_version="$(awk '/^version:/ { print $2; exit }' pubspec.yaml)"
-          test "${GITHUB_REF_NAME}" = "${package_version}"
-      - name: Publish package
-        run: flutter pub publish --force
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
