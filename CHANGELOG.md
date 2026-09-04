@@ -1,3 +1,8 @@
+## 3.0.3
+
+* Maintenance release with no public API or native-engine compatibility
+  changes from 3.0.2.
+
 ## 3.0.2
 
 * Published after synchronizing the renamed package with its public repository.
