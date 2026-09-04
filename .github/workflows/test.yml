@@ -15,7 +15,7 @@ jobs:
     name: Flutter validation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -24,6 +24,9 @@ jobs:
       - run: dart format --output=none --set-exit-if-changed lib test example/lib
       - run: flutter analyze
       - run: flutter test
+      # Flutter may migrate analysis option files while validating an older
+      # example project. Do not let generated migrations dirty the package.
+      - run: git restore analysis_options.yaml example/analysis_options.yaml
       - run: flutter pub publish --dry-run
 
   native-build:
@@ -46,7 +49,13 @@ jobs:
       run:
         working-directory: example
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+      - name: Install Linux desktop build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+        working-directory: .
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -61,8 +70,8 @@ jobs:
       run:
         working-directory: example
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -70,5 +79,11 @@ jobs:
         with:
           channel: stable
           cache: true
+      - name: Accept Android SDK licenses and install the NDK
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager --install "ndk;29.0.13113456"
+        working-directory: .
       - run: flutter pub get
       - run: flutter build apk --debug
