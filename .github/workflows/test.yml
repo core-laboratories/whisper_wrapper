@@ -54,7 +54,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install --yes clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+          sudo apt-get install --yes clang cmake ninja-build pkg-config libgtk-3-dev libjson-glib-dev liblzma-dev
         working-directory: .
       - uses: subosito/flutter-action@v2
         with:
@@ -75,6 +75,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - name: Set up Android SDK command-line tools
+        uses: android-actions/setup-android@v4
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -82,7 +84,7 @@ jobs:
       - name: Accept Android SDK licenses and install the NDK
         shell: bash
         run: |
-          yes | sdkmanager --licenses >/dev/null || true
+          yes | sdkmanager --licenses >/dev/null 2>&1 || true
           sdkmanager --install "ndk;29.0.13113456"
         working-directory: .
       - run: flutter pub get
