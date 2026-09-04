@@ -1,3 +1,8 @@
+## 3.0.1
+
+* Fixed Markdown conformance in the package documentation.
+* Finalized the renamed Core Laboratories package metadata and release files.
+
 ## 3.0.0
 
 * Renamed the package from `whisper_ggml` to `whisper_wrapper` under Core Laboratories.

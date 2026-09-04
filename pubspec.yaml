@@ -1,6 +1,6 @@
 name: whisper_wrapper
 description: Offline, on-device speech recognition for Flutter powered by whisper.cpp.
-version: 3.0.0
+version: 3.0.1
 repository: https://github.com/core-laboratories/whisper_wrapper
 homepage: https://github.com/core-laboratories/whisper_wrapper
 issue_tracker: https://github.com/core-laboratories/whisper_wrapper/issues
